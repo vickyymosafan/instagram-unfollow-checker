@@ -1,91 +1,94 @@
 ﻿# DESIGN.md
 
 ## Visual Thesis
-Website terasa seperti studio tool Gen-Z yang rapi. Gelap default, material kaca tipis, aksen coral dan mint, tanpa ungu.
+Website terasa seperti tool Gen-Z yang bersih, tajam, dan mudah dibaca. Dark mode default memakai latar hitam netral, panel charcoal, aksen lime, dan status teal. Tidak memakai ungu atau pink.
 
 ## Prinsip
-- Produk harus terbaca dalam 3 detik.
-- Satu aksen utama, coral pink.
-- Mint hanya untuk status aman.
-- Gunakan ruang kosong, bukan banyak kartu.
-- Panel hanya untuk area interaksi.
-- Transisi warna wajib halus.
-- Hindari dekorasi ramai, emoji berlebihan, ikon generik, dan efek AI slop.
+- Prioritaskan keterbacaan daripada efek dekoratif.
+- Satu warna aksi utama: lime.
+- Satu warna status aman: teal.
+- Latar memakai hitam netral atau putih netral.
+- Hindari ungu, violet, lavender, indigo, pink, rose, fuchsia, dan magenta.
+- Gunakan panel solid atau semi-solid. Jangan blur ekstrem.
+- Gunakan transisi warna halus untuk theme switch, hover, border, dan button.
+- Hindari AI slop: gradient ramai, glow besar, kartu terlalu banyak, dan copy panjang.
 
 ## Warna
 
 ### Dark Default
 ```css
---bg: #07080b;
---bg-soft: #0d1016;
---surface: rgba(18, 21, 29, 0.78);
---surface-strong: #151923;
---text: #f7f7fb;
---text-muted: #9aa3b2;
---border: rgba(255, 255, 255, 0.11);
---accent: #ff3ea5;
---accent-strong: #ff2f87;
---safe: #25e0b7;
---warm: #ff8a3d;
---shadow: rgba(0, 0, 0, 0.36);
+--bg: #08090c;
+--bg-soft: #10141a;
+--surface: #131821;
+--surface-strong: #18202b;
+--text: #f8fafc;
+--text-muted: #b6c0cc;
+--border: rgba(248, 250, 252, 0.14);
+--accent: #a3e635;
+--accent-strong: #65a30d;
+--accent-text: #102000;
+--safe: #19c6a3;
+--info: #38bdf8;
+--shadow: rgba(0, 0, 0, 0.34);
 ```
 
 ### Light Mode
 ```css
---bg: #fbfcff;
---bg-soft: #f1f5f9;
---surface: rgba(255, 255, 255, 0.82);
---surface-strong: #ffffff;
---text: #080a10;
---text-muted: #647084;
---border: rgba(8, 10, 16, 0.11);
---accent: #f72f9d;
---accent-strong: #e72583;
---safe: #00b894;
---warm: #f97316;
+--bg: #f8fafc;
+--bg-soft: #eef3f8;
+--surface: #ffffff;
+--surface-strong: #f2f6fb;
+--text: #0b1117;
+--text-muted: #526070;
+--border: rgba(11, 17, 23, 0.13);
+--accent: #84cc16;
+--accent-strong: #4d7c0f;
+--accent-text: #102000;
+--safe: #059b80;
+--info: #0284c7;
 --shadow: rgba(15, 23, 42, 0.12);
 ```
 
 ## Typography
 - Font utama: Geist Sans.
 - Font data: Geist Mono.
-- Hero: 56 sampai 88px desktop, 42 sampai 56px mobile.
+- Hero desktop: 64 sampai 96px.
+- Hero mobile: 42 sampai 56px.
 - Heading section: 28 sampai 40px.
 - Body: 16 sampai 18px.
-- Gunakan font weight 800 sampai 950 untuk headline.
-- Gunakan tracking rapat untuk headline, normal untuk body.
+- Body memakai warna `--text-muted` hanya untuk teks pendukung.
+- Label, tombol, dan username harus kontras tinggi.
 
 ## Layout
-- Header tipis, floating, transparan.
-- Hero full bleed, bukan card.
-- Hero punya satu visual anchor berupa mesh gradient coral, mint, warm.
-- Checker menjadi workspace dua kolom di desktop.
-- Form di kiri, hasil di kanan.
-- Tutorial menjadi strip tiga langkah, singkat.
-- Mobile satu kolom, tap target minimal 44px.
+- Header floating tipis.
+- Hero full bleed, tanpa card hero.
+- Workspace dua kolom di desktop, satu kolom di mobile.
+- Panel form dan hasil memakai surface solid agar teks mudah dibaca.
+- Tutorial menjadi strip tiga langkah.
+- Mobile tap target minimal 44px.
 
 ## Komponen
 
 ### Button
-- Primary coral solid.
-- Secondary transparan dengan border halus.
-- Hover naik 1 sampai 2px.
+- Primary lime solid dengan teks gelap.
+- Secondary surface solid dengan border jelas.
+- Hover naik 1px.
 - Active turun 1px.
 
 ### Input
-- Background memakai surface strong.
-- Border halus.
-- Focus pakai ring coral.
-- File input terlihat seperti drop zone.
+- Background `--surface-strong`.
+- Border terlihat di dark dan light.
+- Placeholder harus terbaca di dark dan light.
+- Focus ring lime.
 
 ### Result Row
-- Baris bersih dengan divider tipis.
+- Divider tipis.
 - Username pakai mono.
-- Hover pakai tint coral sangat tipis.
+- Hover pakai lime tint 10 persen.
 
 ### Badge
-- Privacy badge pakai mint tint.
-- Counter kecil pakai surface soft.
+- Privacy atau status aman pakai teal.
+- Counter pakai surface strong.
 
 ## Motion
 ```css
@@ -95,14 +98,15 @@ Website terasa seperti studio tool Gen-Z yang rapi. Gelap default, material kaca
 --duration-base: 260ms;
 --duration-slow: 520ms;
 ```
-- Semua perubahan background, color, border, shadow, transform memakai transition halus.
-- Theme switch memakai transition global 260ms sampai 520ms.
-- Hero masuk dengan fade dan translate kecil.
-- Panel interaksi punya hover lembut.
+- Semua background, color, border, shadow, opacity, dan transform wajib transition halus.
+- Theme switch tidak boleh patah warna.
+- Hero boleh fade dan translate ringan.
+- Hindari blur animasi besar.
 - Respect `prefers-reduced-motion`.
 
 ## Accessibility
-- Contrast body minimal 4.5:1.
+- Body text minimal 4.5:1.
+- Large heading minimal 3:1.
 - Focus ring terlihat.
 - Skip link wajib.
 - Label input wajib.
@@ -110,9 +114,9 @@ Website terasa seperti studio tool Gen-Z yang rapi. Gelap default, material kaca
 - Jangan mengandalkan warna saja.
 
 ## Larangan
-- Jangan pakai ungu.
-- Jangan pakai gradient pelangi.
-- Jangan pakai card grid berlebihan.
-- Jangan pakai efek blur ekstrem.
+- Jangan pakai ungu, violet, lavender, indigo, pink, rose, fuchsia, atau magenta.
+- Jangan pakai gradient ungu atau pink.
+- Jangan pakai glow besar.
+- Jangan pakai blur ekstrem.
+- Jangan pakai glass effect yang menurunkan kontras.
 - Jangan pakai copy panjang.
-- Jangan tambah dependency untuk visual dasar.

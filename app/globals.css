@@ -1,17 +1,21 @@
 ﻿@import "tailwindcss";
 
 :root {
-  --bg: #fbfcff;
-  --bg-soft: #f1f5f9;
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-strong: #ffffff;
-  --text: #080a10;
-  --text-muted: #647084;
-  --border: rgba(8, 10, 16, 0.11);
-  --accent: #f72f9d;
-  --accent-strong: #e72583;
-  --safe: #00b894;
-  --warm: #f97316;
+  --bg: #f8fafc;
+  --bg-soft: #eef3f8;
+  --surface: #ffffff;
+  --surface-strong: #f2f6fb;
+  --text: #0b1117;
+  --text-muted: #526070;
+  --input-bg: #edf3f8;
+  --input-text: #0b1117;
+  --placeholder: #66758a;
+  --border: rgba(11, 17, 23, 0.13);
+  --accent: #84cc16;
+  --accent-strong: #4d7c0f;
+  --accent-text: #102000;
+  --safe: #059b80;
+  --info: #38bdf8;
   --shadow: rgba(15, 23, 42, 0.12);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
@@ -21,34 +25,42 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #07080b;
-  --bg-soft: #0d1016;
-  --surface: rgba(18, 21, 29, 0.78);
-  --surface-strong: #151923;
-  --text: #f7f7fb;
-  --text-muted: #9aa3b2;
-  --border: rgba(255, 255, 255, 0.11);
-  --accent: #ff3ea5;
-  --accent-strong: #ff2f87;
-  --safe: #25e0b7;
-  --warm: #ff8a3d;
-  --shadow: rgba(0, 0, 0, 0.36);
+  --bg: #08090c;
+  --bg-soft: #10141a;
+  --surface: #131821;
+  --surface-strong: #18202b;
+  --text: #f8fafc;
+  --text-muted: #b6c0cc;
+  --input-bg: #18202b;
+  --input-text: #f8fafc;
+  --placeholder: #aeb8c6;
+  --border: rgba(248, 250, 252, 0.14);
+  --accent: #a3e635;
+  --accent-strong: #65a30d;
+  --accent-text: #102000;
+  --safe: #19c6a3;
+  --info: #38bdf8;
+  --shadow: rgba(0, 0, 0, 0.34);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #07080b;
-    --bg-soft: #0d1016;
-    --surface: rgba(18, 21, 29, 0.78);
-    --surface-strong: #151923;
-    --text: #f7f7fb;
-    --text-muted: #9aa3b2;
-    --border: rgba(255, 255, 255, 0.11);
-    --accent: #ff3ea5;
-    --accent-strong: #ff2f87;
-    --safe: #25e0b7;
-    --warm: #ff8a3d;
-    --shadow: rgba(0, 0, 0, 0.36);
+    --bg: #08090c;
+    --bg-soft: #10141a;
+    --surface: #131821;
+    --surface-strong: #18202b;
+    --text: #f8fafc;
+    --text-muted: #b6c0cc;
+    --input-bg: #18202b;
+    --input-text: #f8fafc;
+    --placeholder: #aeb8c6;
+    --border: rgba(248, 250, 252, 0.14);
+    --accent: #a3e635;
+    --accent-strong: #65a30d;
+    --accent-text: #102000;
+    --safe: #19c6a3;
+    --info: #38bdf8;
+    --shadow: rgba(0, 0, 0, 0.34);
   }
 }
 
@@ -86,9 +98,8 @@ body::before {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(circle at 14% 8%, color-mix(in srgb, var(--accent) 32%, transparent), transparent 28rem),
-    radial-gradient(circle at 86% 10%, color-mix(in srgb, var(--safe) 22%, transparent), transparent 24rem),
-    radial-gradient(circle at 74% 76%, color-mix(in srgb, var(--warm) 18%, transparent), transparent 26rem),
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 24rem),
+    radial-gradient(circle at 88% 14%, color-mix(in srgb, var(--safe) 12%, transparent), transparent 22rem),
     linear-gradient(180deg, var(--bg), var(--bg-soft));
   transition: background var(--duration-slow) var(--ease-soft);
 }
@@ -138,7 +149,7 @@ textarea:focus-visible {
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-text);
 }
 
 .app-shell {
@@ -160,8 +171,7 @@ textarea:focus-visible {
 .count-pill {
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface) 78%, transparent);
-  box-shadow: 0 14px 40px var(--shadow);
-  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 28px var(--shadow);
 }
 
 .brand-pill,
@@ -230,8 +240,8 @@ textarea:focus-visible {
   border: 0;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: white;
-  box-shadow: 0 18px 50px color-mix(in srgb, var(--accent) 34%, transparent);
+  color: var(--accent-text);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 18%, transparent);
   cursor: pointer;
   font-weight: 900;
 }
@@ -295,8 +305,7 @@ textarea:focus-visible {
   border: 1px solid var(--border);
   border-radius: 32px;
   background: var(--surface);
-  box-shadow: 0 24px 80px var(--shadow);
-  backdrop-filter: blur(22px);
+  box-shadow: 0 18px 52px var(--shadow);
 }
 
 .input-panel,
@@ -352,8 +361,8 @@ textarea:focus-visible {
 .search-input {
   width: 100%;
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
-  color: var(--text);
+  background: var(--input-bg);
+  color: var(--input-text);
   box-shadow: inset 0 1px 0 color-mix(in srgb, white 5%, transparent);
 }
 
@@ -626,7 +635,7 @@ main .hero { display: grid; grid-template-columns: minmax(0, 1fr) 360px; align-i
 main .hero-actions, main .result-toolbar, main .result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 main .primary-link, main .secondary-link { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding-inline: 22px; border-radius: 999px; }
 main .workspace { display: grid; grid-template-columns: minmax(320px, .84fr) minmax(0, 1.16fr); gap: 24px; align-items: start; }
-main .panel { border: 1px solid var(--border); border-radius: 32px; background: var(--surface); box-shadow: 0 24px 80px var(--shadow); backdrop-filter: blur(22px); }
+main .panel { border: 1px solid var(--border); border-radius: 32px; background: var(--surface); box-shadow: 0 18px 52px var(--shadow); }
 main .input-panel, main .result-panel, main .tutorial-panel { padding: clamp(22px, 3vw, 34px); }
 main .panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 24px; }
 main .field-group { display: grid; gap: 10px; margin-top: 20px; }
@@ -638,3 +647,19 @@ main .stats-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr
 main .result-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 16px; }
 main .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 @media (max-width: 920px) { main .hero, main .workspace, main .steps { grid-template-columns: 1fr; } }
+
+
+
+.dropzone::file-selector-button {
+  color: var(--input-text);
+  font-weight: 800;
+}
+
+.textarea::placeholder,
+.search-input::placeholder,
+.dropzone::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+

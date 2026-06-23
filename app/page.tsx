@@ -199,7 +199,7 @@ export default function Home() {
 
   return (
     <>
-      <a className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[var(--accent)] focus:px-4 focus:py-2 focus:text-white" href="#checker">
+      <a className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[var(--accent)] focus:px-4 focus:py-2 focus:text-[var(--accent-text)]" href="#checker">
         Lewati ke checker
       </a>
 
@@ -349,5 +349,6 @@ export default function Home() {
     </>
   );
 }
+
 
 
