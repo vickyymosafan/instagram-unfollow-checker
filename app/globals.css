@@ -182,6 +182,19 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
 .theme-toggle:hover,
 .secondary-link:hover,
 .primary-link:hover,
@@ -661,5 +674,6 @@ main .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); g
   color: var(--placeholder);
   opacity: 1;
 }
+
 
 

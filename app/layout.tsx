@@ -16,11 +16,17 @@ export const metadata: Metadata = {
   title: "Instagram Unfollow Checker",
   description:
     "Cek akun Instagram yang tidak follow balik. Semua proses berjalan di browser, tanpa login dan tanpa server.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Instagram Unfollow Checker",
     description:
       "Upload atau paste data Instagram. Lihat yang tidak follow balik secara privat di browser.",
     type: "website",
+    images: ["/icon-512.png"],
   },
 };
 
@@ -39,3 +45,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

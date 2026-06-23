@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Image from "next/image";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 type ResultKey = "notFollowingBack" | "mutuals" | "fans";
@@ -206,7 +207,10 @@ export default function Home() {
       <main>
         <div className="app-shell">
           <nav className="topbar" aria-label="Navigasi utama">
-            <span className="brand-pill">IG Unfollow Checker</span>
+            <span className="brand-pill">
+              <Image className="brand-logo" src="/logo.webp" alt="Logo IG Unfollow Checker" width={28} height={28} priority />
+              <span>IG Unfollow Checker</span>
+            </span>
             <button className="theme-toggle" onClick={toggleTheme} type="button" aria-label="Ganti tema warna">
               {isMounted && theme === "light" ? "Dark" : "Light"}
             </button>
@@ -349,6 +353,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 
